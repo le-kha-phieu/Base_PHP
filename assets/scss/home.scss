@@ -1,0 +1,15 @@
+// CSS cho riêng page home
+header {
+    @include centerAll;
+    color: red;
+    .logo {
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .menu-navbar {
+        .item-menu-navbar {
+        }
+    }
+}

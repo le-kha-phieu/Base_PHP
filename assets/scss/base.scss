@@ -1,0 +1,16 @@
+// config all css default & mixin 
+body {
+    margin: 0;
+}
+ul {
+    padding: 0;
+}
+
+@mixin centerAll() {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@mixin textHeading($color) {
+    color: $color;
+}
