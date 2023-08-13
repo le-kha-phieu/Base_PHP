@@ -6,15 +6,407 @@ ul {
   padding: 0;
 }
 
-header {
+.background-auth {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.background-auth img {
+  width: 1440px;
+  height: 1024px;
+  position: relative;
+}
+
+.app-auth {
+  width: 1000px;
+  height: 709;
+  position: absolute;
+  top: 158px;
+  left: 220px;
+  border-radius: 10px;
+}
+.app-auth .app-form {
+  width: 1000px;
+  height: 709px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+}
+.app-auth .app-form img {
+  width: 1000px;
+  height: 709px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 10px;
+}
+.app-auth .app-form .all-content {
+  width: 1000px;
+  height: 709px;
+  display: flex;
+  z-index: 2;
+  border-radius: 10px;
+}
+.app-auth .app-form .all-content .banner {
+  width: 50%;
+  height: 709px;
+}
+.app-auth .app-form .all-content .banner img {
+  width: 111px;
+  height: 110px;
+  top: 163px;
+  left: 195px;
+  border-radius: 92px;
+}
+.app-auth .app-form .all-content .banner .title-under-logo {
+  width: 398px;
+  height: 110px;
+  margin-top: 305px;
+  margin-left: 51px;
+}
+.app-auth .app-form .all-content .banner .title-under-logo h2 {
+  font-size: 32px;
+  font-weight: 799;
+  line-height: 55px;
+  letter-spacing: 1%;
+  text-align: center;
+  color: #FFFFFF;
+}
+.app-auth .app-form .all-content .login {
+  width: 50%;
+  height: 709px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-end-end-radius: 10px;
+  border-start-end-radius: 10px;
+}
+.app-auth .app-form .all-content .login .heading {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 65.38px;
+  color: #5F5F5F;
+  margin-top: 110px;
+  margin-bottom: 45px;
+}
+.app-auth .app-form .all-content .login .email {
+  width: auto;
+  height: 97px;
+  display: inline-grid;
+  align-content: space-between;
+  justify-items: stretch;
+}
+.app-auth .app-form .all-content .login .email label {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27.24px;
+  text-align: left;
+  color: #5F5F5F;
+}
+.app-auth .app-form .all-content .login .email input {
+  width: 406px;
+  height: 60px;
+  padding-left: 25px;
+  border-radius: 4px;
+  border: 1px solid #A1A1A1;
+}
+.app-auth .app-form .all-content .login .email span {
+  position: absolute;
+  top: 321px;
   color: red;
 }
-header .logo img {
-  width: 100%;
-  height: 100%;
+.app-auth .app-form .all-content .login .password {
+  width: auto;
+  height: 137px;
+  margin-top: 20px;
+  display: inline-grid;
+  align-content: space-around;
+  justify-items: stretch;
+}
+.app-auth .app-form .all-content .login .password label {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27.24px;
+  text-align: left;
+  color: #5F5F5F;
+}
+.app-auth .app-form .all-content .login .password input {
+  width: 406px;
+  height: 60px;
+  padding-left: 25px;
+  border-radius: 4px;
+  border: 1px solid #A1A1A1;
+}
+.app-auth .app-form .all-content .login .password .icon-eyes {
+  position: absolute;
+  right: 60px;
+  top: 402px;
+}
+.app-auth .app-form .all-content .login .password .icon-eyes i {
+  color: #A1A1A1;
+}
+.app-auth .app-form .all-content .login .password .text-forgot-pass {
+  text-align: end;
+}
+.app-auth .app-form .all-content .login .password .text-forgot-pass a {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24.52px;
+  text-decoration: none;
+  color: #1E5CFD;
+  cursor: pointer;
+}
+.app-auth .app-form .all-content .login .password span {
+  position: absolute;
+  top: 442px;
+  color: red;
+}
+.app-auth .app-form .all-content .login .text-forgot-pass:hover a {
+  text-decoration: underline;
+}
+.app-auth .app-form .all-content .login .btn-sign-in {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.app-auth .app-form .all-content .login .btn-sign-in button {
+  width: 153px;
+  height: 43px;
+  color: #FFFFFF;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24.2px;
+  cursor: pointer;
+}
+.app-auth .app-form .all-content .login .text-link-register a {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24.52px;
+  text-decoration: none;
+  color: #1E5CFD;
+}
+.app-auth .app-form .all-content .login .text-link-register:hover a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.app-auth .app-form .all-content .register {
+  width: 50%;
+  height: 709px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-end-end-radius: 10px;
+  border-start-end-radius: 10px;
+}
+.app-auth .app-form .all-content .register h3 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 65.38px;
+  margin-top: 68px;
+  margin-bottom: 7px;
+  color: #5F5F5F;
+}
+.app-auth .app-form .all-content .register .email {
+  width: auto;
+  height: 97px;
+  display: inline-grid;
+  align-content: space-between;
+  justify-items: stretch;
+}
+.app-auth .app-form .all-content .register .email label {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27.24px;
+  text-align: left;
+  color: #5F5F5F;
+}
+.app-auth .app-form .all-content .register .email input {
+  width: 381px;
+  height: 59px;
+  padding: 0px 0px 0px 24px;
+  border-radius: 4px;
+  border: 1px solid #A1A1A1;
+}
+.app-auth .app-form .all-content .register .email span {
+  position: absolute;
+  top: 242px;
+  color: red;
+}
+.app-auth .app-form .all-content .register .password {
+  width: auto;
+  height: 97px;
+  margin-top: 31px;
+  display: inline-grid;
+  align-content: space-between;
+  justify-items: stretch;
+}
+.app-auth .app-form .all-content .register .password label {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27.24px;
+  text-align: left;
+  color: #5F5F5F;
+}
+.app-auth .app-form .all-content .register .password input {
+  width: 381px;
+  height: 59px;
+  padding: 0px 0px 0px 24px;
+  border-radius: 4px;
+  border: 1px solid #A1A1A1;
+}
+.app-auth .app-form .all-content .register .password .icon-eyes {
+  position: absolute;
+  right: 60px;
+  top: 325px;
+}
+.app-auth .app-form .all-content .register .password .icon-eyes i {
+  color: #A1A1A1;
+}
+.app-auth .app-form .all-content .register .password span {
+  position: absolute;
+  top: 370px;
+  color: red;
+}
+.app-auth .app-form .all-content .register .password-confirm {
+  width: auto;
+  height: 97px;
+  margin-top: 31px;
+  display: inline-grid;
+  align-content: space-between;
+  justify-items: stretch;
+}
+.app-auth .app-form .all-content .register .password-confirm label {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27.24px;
+  text-align: left;
+  color: #5F5F5F;
+}
+.app-auth .app-form .all-content .register .password-confirm input {
+  width: 381px;
+  height: 59px;
+  padding: 0px 0px 0px 24px;
+  border-radius: 4px;
+  border: 1px solid #A1A1A1;
+}
+.app-auth .app-form .all-content .register .password-confirm .icon-eyes {
+  position: absolute;
+  right: 60px;
+  top: 455px;
+}
+.app-auth .app-form .all-content .register .password-confirm .icon-eyes i {
+  color: #A1A1A1;
+}
+.app-auth .app-form .all-content .register .password-confirm span {
+  position: absolute;
+  top: 500px;
+  color: red;
+}
+.app-auth .app-form .all-content .register .btn-sign-up {
+  margin-bottom: 28px;
+}
+.app-auth .app-form .all-content .register .btn-sign-up button {
+  width: 153px;
+  height: 43px;
+  margin-top: 41px;
+  color: #FFFFFF;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24.2px;
+  cursor: pointer;
+}
+.app-auth .app-form .all-content .register .login-account a {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24.52px;
+  text-decoration: none;
+  color: #1E5CFD;
+}
+.app-auth .app-form .all-content .register .login-account:hover a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.app-auth .app-form .Content-forgot-pass {
+  position: absolute;
+  width: 734px;
+  height: 381px;
+  top: 170px;
+  left: 133px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 40px;
+  z-index: 3;
+}
+.app-auth .app-form .Content-forgot-pass .banner img {
+  position: absolute;
+  width: 150px;
+  height: 148.65px;
+  top: -75px;
+  left: 292px;
+  border-radius: 50%;
+}
+.app-auth .app-form .Content-forgot-pass .banner .under-logo {
+  width: 590px;
+  height: auto;
+  display: grid;
+  margin-top: 98px;
+  margin-left: 71px;
+  text-align: left;
+}
+.app-auth .app-form .Content-forgot-pass .banner .under-logo label {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  letter-spacing: 5%;
+  color: #5F5F5F;
+}
+.app-auth .app-form .Content-forgot-pass .banner .under-logo input {
+  width: 564px;
+  height: 61px;
+  margin-top: 15px;
+  padding: 0px 0px 0px 25px;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+.app-auth .app-form .Content-forgot-pass .banner .under-logo .button-send {
+  width: 350px;
+  height: auto;
+  display: flex;
+  margin-top: 61px;
+  margin-left: 241px;
+  justify-content: space-between;
+}
+.app-auth .app-form .Content-forgot-pass .banner .under-logo .button-send .not-send {
+  width: 150px;
+  height: 50px;
+  background-color: #A4A3A3;
+  border: 1px solid #A4A3A3;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32.69px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.app-auth .app-form .Content-forgot-pass .banner .under-logo .button-send .allow-send {
+  width: 150px;
+  height: 50px;
+  background-color: #007BFF;
+  border: 1px solid #007BFF;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32.69px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
