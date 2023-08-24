@@ -1,151 +1,85 @@
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector(".remove_login").onclick = () => {
-        document.querySelector(".login").classList.add('hidden')
-        document.querySelector(".register").classList.remove('hidden')
-    };
-    document.querySelector(".remove_register").onclick = () => {
-        document.querySelector(".register").classList.add('hidden')
-        document.querySelector(".login").classList.remove('hidden')
-    };
-    document.querySelector(".forgot_password").onclick = () => {
-        document.querySelector(".register").classList.add('hidden')
-        document.querySelector(".login").classList.add('hidden')
-        document.querySelector(".banner").classList.add('hidden')
-        document.querySelector(".Content-forgot-pass").classList.remove('hidden')
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  const boxLogin = document.querySelector(".login");
+  const boxRegister = document.querySelector(".register");
+  const btnLogin = document.getElementById("btnLogin");
+  const btnRegister = document.getElementById("btnRegister");
+  const notifyEmailRegister = document.getElementById("notifyEmailRegister");
+  const notifyPasswordRegister = document.getElementById(
+    "notifyPasswordRegister"
+  );
+  const notifyRePasswordRegister = document.getElementById(
+    "notifyRePasswordRegister"
+  );
+  const inputEmailReg = document.getElementById("inputEmailReg");
+  const inputPasswordReg = document.getElementById("inputPasswordReg");
+  const inputRePasswordReg = document.getElementById("inputRePasswordReg");
 
+  // btnLogin.setAttribute("disabled", true);
+  btnRegister.setAttribute("disabled", true);
+
+  document.querySelector("#showRegister").onclick = () => {
+    boxLogin.classList.add("hidden");
+    boxRegister.classList.remove("hidden");
+  };
+
+  document.querySelector("#showLogin").onclick = () => {
+    boxRegister.classList.add("hidden");
+    boxLogin.classList.remove("hidden");
+  };
+
+  function checkRequired(value, notifyElement) {
+    if (value.length === 0) {
+      notifyElement.innerHTML = "Dữ liệu không được bỏ trống";
+      return false;
+    }
+    notifyElement.innerHTML = "";
+    return true;
+  }
+
+  // Handle Register
+  function register() {
+    let check = 0;
+    let valuePass = inputPasswordReg.value;
+    let valueRePass = inputRePasswordReg.value;
+
+    if (checkRequired(inputEmailReg.value, notifyEmailRegister)) check += 1;
+    if (checkRequired(valuePass, notifyPasswordRegister)) check += 1;
+    if (checkRequired(valueRePass, notifyRePasswordRegister)) check += 1;
+    if (checkMathPassword(valuePass, valueRePass)) check += 1;
+
+    if (check === 4) {
+      btnRegister.removeAttribute("disabled");
+    } else {
+      btnRegister.setAttribute("disabled", true);
+    }
+  }
+
+  const checkMathPassword = (password, passwordConfirm) => {
+    if (password !== passwordConfirm) {
+      notifyRePasswordRegister.innerHTML = "Mật khẩu không trùng khớp";
+      return false;
+    }
+    notifyRePasswordRegister.innerHTML = "";
+    return true;
+  };
+
+  inputEmailReg.onblur = () => {
+    inputEmailReg.value = inputEmailReg.value.trim();
+    checkRequired(inputEmailReg.value, notifyEmailRegister);
+    register()
+  };
+
+  inputPasswordReg.onblur = () => {
+    inputPasswordReg.value = inputPasswordReg.value.trim();
+    checkRequired(inputPasswordReg.value, notifyPasswordRegister);
+    checkMathPassword(inputPasswordReg.value, inputRePasswordReg.value);
+    register()
+  };
+
+  inputRePasswordReg.onblur = () => {
+    inputRePasswordReg.value = inputRePasswordReg.value.trim();
+    checkRequired(inputRePasswordReg.value, notifyRePasswordRegister);
+    checkMathPassword(inputPasswordReg.value, inputRePasswordReg.value);
+    register()
+  };
 });
-
-
-function validateEmail() {
-    const emailInput = document.getElementById('email');
-    const emailRequired = document.getElementById('email-required');
-
-    const emailValue = emailInput.value.trim();
-    if (emailValue === '') {
-        emailRequired.textContent = 'Email is required';
-    } else if (!isValidEmail(emailValue)) {
-        emailRequired.textContent = 'Invalid email format';
-    } else {
-        emailRequired.textContent = '';
-    }
-}
-
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function validatePass() {
-    const passwordInput = document.getElementById('password');
-    const passwordRequired = document.getElementById('password-required');
-
-    const passwordValue = passwordInput.value.trim();
-    if (passwordValue === '') {
-        passwordRequired.textContent = 'Password is required';
-    } else if (passwordValue.length < 6) {
-        passwordRequired.textContent = 'Password must be at least 6 characters';
-    } else {
-        passwordRequired.textContent = '';
-    }
-}
-
-function validatePassCFM() {
-    const passwordInput = document.getElementById('password');
-    const passwordConfirmInput = document.getElementById('password_confirm');
-    const passwordConfirmRequired = document.getElementById('password-confirm-required');
-
-    const passwordConfirmValue = passwordConfirmInput.value.trim();
-    const passwordValue = passwordInput.value.trim();
-
-    if (passwordConfirmValue === '') {
-        passwordConfirmRequired.textContent = 'Password confirmation is required';
-        enSubmitBtn(false);
-    } else if (passwordValue !== passwordConfirmValue) {
-        passwordConfirmRequired.textContent = 'Passwords do not match';
-        enSubmitBtn(false);
-    } else {
-        passwordConfirmRequired.textContent = '';
-        enSubmitBtn(true);
-    }
-}
-
-function signUp() {
-    validateEmail();
-    validatePass();
-    validatePassCFM();
-
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const passwordConfirmInput = document.getElementById('password_confirm');
-
-    const emailValue = emailInput.value.trim();
-    const passwordValue = passwordInput.value.trim();
-    const passwordConfirmValue = passwordConfirmInput.value.trim();
-
-    if (emailValue !== '' && isValidEmail(emailValue) &&
-        passwordValue !== '' && passwordValue.length >= 6 &&
-        passwordValue === passwordConfirmValue) {
-        enSubmitBtn(true);
-    } else {
-        enSubmitBtn(false);
-    }
-}
-
-function enSubmitBtn(enabled) {
-    const submitButton = document.querySelector('.btn-sign-up button');
-    submitButton.disabled = !enabled;
-}
-
-
-
-function validateEmailSgn() {
-    const emailInput = document.getElementById('email-signin');
-    const emailRequired = document.getElementById('email-signin-required');
-
-    const emailValue = emailInput.value.trim();
-    if (emailValue === '') {
-        emailRequired.textContent = 'Email is required';
-    } else if (!isValidEmail(emailValue)) {
-        emailRequired.textContent = 'Invalid email format';
-    } else {
-        emailRequired.textContent = '';
-    }
-}
-
-function validatePassSgn() {
-    const passwordInput = document.getElementById('password-signin');
-    const passwordRequired = document.getElementById('password-signin-required');
-
-    const passwordValue = passwordInput.value.trim();
-    if (passwordValue === '') {
-        passwordRequired.textContent = 'Password is required';
-    } else if (passwordValue.length < 6) {
-        passwordRequired.textContent = 'Password must 6 characters';
-    } else {
-        passwordRequired.textContent = '';
-    }
-}
-
-function signIn() {
-    validateEmailSgn();
-    validatePassSgn();
-
-    const emailInput = document.getElementById('email-signin');
-    const passwordInput = document.getElementById('password-signin');
-
-    const emailValue = emailInput.value.trim();
-    const passwordValue = passwordInput.value.trim();
-
-    if (emailValue !== '' && isValidEmail(emailValue) &&
-        passwordValue !== '' && passwordValue.length >= 6) {
-        enSubmitBtnSgn(true);
-    } else {
-        enSubmitBtnSgn(false);
-    }
-}
-
-function enSubmitBtnSgn(enabled) {
-    const submitButton = document.querySelector('.btn-sign-in button');
-    submitButton.disabled = !enabled;
-}

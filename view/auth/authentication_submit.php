@@ -4,15 +4,19 @@ require 'connect_sql.php';
 if (isset($_POST['submit_register'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $password_confirm = $_POST['password_confirm'];
-
-  $queryRegister = "INSERT INTO `users`(`email`, `password`) VALUES ('$email','$password')";
-
-  if ($conn->query($queryRegister)) {
-    echo "<h1>Đăng ký thành công</h1> <a href=authentication.php>Bấm vào đây để đăng nhập ngay.</a>";
+  $passwordConfirm = $_POST['password_confirm'];
+  if ($password === $passwordConfirm) {
+    $queryRegister = "INSERT INTO `users`(`email`, `password`) VALUES ('$email','$password')";
+  
+    if ($conn->query($queryRegister)) {
+      echo "<h1>Đăng ký thành công</h1> <a href=authentication.php>Bấm vào đây để đăng nhập ngay.</a>";
+    } else {
+      echo "Error: " . $queryRegister . "<br>" . mysqli_error($conn);
+    }
   } else {
-    echo "Error: " . $queryRegister . "<br>" . mysqli_error($conn);
+    echo "<h1>Mật khẩu không trùng khớp, vui lòng thử lại</h1><a href='authentication.php'>Bấm vào đây</a>";
   }
+
 }
 
 if (isset($_POST['submit_login'])) {
