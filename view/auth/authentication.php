@@ -47,17 +47,18 @@
                 <h3>Sign in</h3>
                 <div class="item-form">
                     <p>Email:</p>
-                    <input type="text" name="email" id="inputEmail" placeholder="Input your email">
+                    <input type="email" name="email" id="inputEmail" placeholder="Input your email">
                     <span class="notify-error" id="notifyErrorEmail"></span>
                 </div>
                 <div class="item-form item-password">
                     <p>Password:</p>
                     <input type="password" name="password" id="inputPassword" placeholder="Input your password">
                     <i class="icon-eyes fa-solid fa-eye"></i>
+                    <span class="notify-error" id="notifyErrorPassword"></span>
                     <p class="text-forgot-password">Forgot your password?</p>
                 </div>
                 <div class="btn-form item-form">
-                    <button type="submit" name="submit_login" id="btnLogin" onclick="login()">Sign in</button>
+                    <button type="submit" name="submit_login" id="btnLogin">Sign in</button>
                 </div>
                 <div class="item-form">
                     <p id="showRegister">Don't have an account? Sign up here</p>

@@ -10,11 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const notifyRePasswordRegister = document.getElementById(
     "notifyRePasswordRegister"
   );
+  const notifyErrorEmail = document.getElementById("notifyErrorEmail");
+  const notifyErrorPassword = document.getElementById("notifyErrorPassword");
   const inputEmailReg = document.getElementById("inputEmailReg");
   const inputPasswordReg = document.getElementById("inputPasswordReg");
   const inputRePasswordReg = document.getElementById("inputRePasswordReg");
+  const inputEmailLog = document.getElementById("inputEmail");
+  const inputPasswordLog = document.getElementById("inputPassword");
 
-  // btnLogin.setAttribute("disabled", true);
+  btnLogin.setAttribute("disabled", true);
   btnRegister.setAttribute("disabled", true);
 
   document.querySelector("#showRegister").onclick = () => {
@@ -82,4 +86,34 @@ document.addEventListener("DOMContentLoaded", function () {
     checkMathPassword(inputPasswordReg.value, inputRePasswordReg.value);
     register()
   };
+
+  
+  // Handle Login
+  function login() {
+    let check = 0;
+    let valueLogPass = inputPasswordLog.value;
+
+    if (checkRequired(inputEmailLog.value, notifyErrorEmail)) check += 1;
+    if (checkRequired(valueLogPass, notifyErrorPassword)) check += 1;
+
+    if (check === 2) {
+      btnLogin.removeAttribute("disabled");
+    } else {
+      btnLogin.setAttribute("disabled", true);
+    }
+  }
+
+    inputEmailLog.onblur = () => {
+      inputEmailLog.value = inputEmailLog.value.trim();
+      checkRequired(inputEmailLog.value, notifyErrorEmail);
+      login()
+    };
+  
+    inputPasswordLog.onblur = () => {
+      inputPasswordLog.value = inputPasswordLog.value.trim();
+      checkRequired(inputPasswordLog.value, notifyErrorPassword);
+      login()
+    };
+  
 });
+
