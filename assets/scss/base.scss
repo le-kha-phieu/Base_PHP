@@ -1,16 +1,56 @@
-// config all css default & mixin 
+:root {
+    --main-black: #000000;
+    --main-white: #ffffff;
+    --main-gray: #d9d9d9;
+    --background-form: #ffffffcc;
+    --background-btn-primary: #007BFF;
+    --text-title-gray: #5F5F5F;
+    --text-link-blue: #1E5CFD;
+    --border-gray: #a1a1a1eb;
+    --btn-gray: #6c757d;
+    --main-red: red;
+}
+
 body {
     margin: 0;
+    padding: 0;
 }
+
+* {
+    box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
+}
+
 ul {
     padding: 0;
 }
 
-@mixin centerAll() {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+a {
+    text-decoration: none;
 }
-@mixin textHeading($color) {
+
+.hidden {
+    display: none;
+}
+
+@mixin flex-center($justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin text-setting($fs: 0, $fw: 0, $color: var(--text-title-gray)) {
+    font-size: $fs;
+    font-weight: $fw;
     color: $color;
+}
+
+@mixin css-background-img ($url, $size: cover, $repeat: no-repeat) {
+    background-image: url($url);
+    background-size: $size;
+    background-repeat: $repeat;
+}
+
+@mixin css-header-img {
+    
 }
