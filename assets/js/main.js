@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     register()
   };
 
-  
+
   // Handle Login
   function login() {
     let check = 0;
@@ -103,17 +103,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-    inputEmailLog.onblur = () => {
-      inputEmailLog.value = inputEmailLog.value.trim();
-      checkRequired(inputEmailLog.value, notifyErrorEmail);
-      login()
-    };
-  
-    inputPasswordLog.onblur = () => {
-      inputPasswordLog.value = inputPasswordLog.value.trim();
-      checkRequired(inputPasswordLog.value, notifyErrorPassword);
-      login()
-    };
-  
+  inputEmailLog.onblur = () => {
+    inputEmailLog.value = inputEmailLog.value.trim();
+    checkRequired(inputEmailLog.value, notifyErrorEmail);
+    login()
+  };
+
+  inputPasswordLog.onblur = () => {
+    inputPasswordLog.value = inputPasswordLog.value.trim();
+    checkRequired(inputPasswordLog.value, notifyErrorPassword);
+    login()
+  };
+
 });
+
+
+window.addEventListener("scroll", function () {
+  let lastScrollTop = 0; 
+  const headerNavbar = document.querySelector(".header-navbar");
+  const currentScrollTop = window.scrollY;
+
+  if (currentScrollTop === 0) { 
+    headerNavbar.classList.remove("header-scrolled");
+  } else {
+    headerNavbar.classList.add("header-scrolled"); 
+  }
+
+  lastScrollTop = currentScrollTop; 
+});
+
+
 
